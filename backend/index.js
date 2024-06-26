@@ -13,12 +13,12 @@ const DBCON = mysql.createConnection({
     database: "employees"
 })
 
-app.get("/" , (req , res)=>{
-   res.send("Hello in our Server")
+app.get("https://employee-server-phi.vercel.app/" , (req , res)=>{
+   res.send(`Hello in our Server Port Number ${port}`)
     
 })
 
-app.get("/employee" , (req , res)=>{
+app.get("https://employee-server-phi.vercel.app/employee" , (req , res)=>{
     DBCON.query("select * from employee_info" , (err , result)=>{
         if (err) throw err
         else{
@@ -29,5 +29,5 @@ app.get("/employee" , (req , res)=>{
 })
 
 app.listen(port ,()=>{
-    host:"https://employee-server-bs8a0bbau-adhamsherbinys-projects.vercel.app"
+    console.log(port)
 })
