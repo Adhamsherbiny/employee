@@ -28,6 +28,6 @@ app.get("/employee" , (req , res)=>{
     
 })
 
-app.listen(port , ()=>{
-    console.log("server is running")
+app.listen(port ,()=>{
+    host:"https://employee-server-bs8a0bbau-adhamsherbinys-projects.vercel.app"
 })
