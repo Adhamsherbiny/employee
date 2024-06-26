@@ -13,6 +13,11 @@ const DBCON = mysql.createConnection({
     database: "employees"
 })
 
+app.get("/" , (req , res)=>{
+   res.send("Hello in our Server")
+    
+})
+
 app.get("/employee" , (req , res)=>{
     DBCON.query("select * from employee_info" , (err , result)=>{
         if (err) throw err
