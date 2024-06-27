@@ -1,8 +1,11 @@
 import express from "express"
-import mysql from "mysql"
+import AdminRoute from "./adminRoute.js"
+import DBCON from "./db.js"
 import cors from "cors"
 const port = 5000
 const app = express()
+
+app.use("/route" , AdminRoute)
 app.use(cors({
     origin: "*",
     methods:["POST" , "GET"],
@@ -10,12 +13,7 @@ app.use(cors({
 }))
 app.use(express.json())
 
-const DBCON = mysql.createConnection({
-    host:"blreoo8niqn2jjskadlv-mysql.services.clever-cloud.com",
-    user: "utxnktank6pwkllr",
-    password: "Ne8sl2S1zkpVceojXtmk",
-    database: "blreoo8niqn2jjskadlv"
-})
+
 
 app.get("/" , (req , res)=>{
    res.send(`Hello in our Server Port Number ${port}`)
@@ -33,5 +31,5 @@ app.get("/itemdefinition" , (req , res)=>{
 })
 
 app.listen(port ,()=>{
-    console.log(port)
+    console.log("Server is running")
 })
