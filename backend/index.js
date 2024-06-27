@@ -11,10 +11,10 @@ app.use(cors({
 app.use(express.json())
 
 const DBCON = mysql.createConnection({
-    host:"127.0.0.1",
-    user: "root",
-    password: "",
-    database: "employees"
+    host:"blreoo8niqn2jjskadlv-mysql.services.clever-cloud.com",
+    user: "utxnktank6pwkllr",
+    password: "Ne8sl2S1zkpVceojXtmk",
+    database: "blreoo8niqn2jjskadlv"
 })
 
 app.get("/" , (req , res)=>{
@@ -22,8 +22,8 @@ app.get("/" , (req , res)=>{
     
 })
 
-app.get("/employee" , (req , res)=>{
-    DBCON.query("select * from employee_info" , (err , result)=>{
+app.get("/itemdefinition" , (req , res)=>{
+    DBCON.query("select * from item_definition" , (err , result)=>{
         if (err) throw err
         else{
             res.send(result)
