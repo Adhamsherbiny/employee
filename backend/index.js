@@ -3,7 +3,11 @@ import mysql from "mysql"
 import cors from "cors"
 const port = 5000
 const app = express()
-app.use(cors())
+app.use(cors({
+    origin: "*",
+    methods:["POST" , "GET"],
+    credentials: true
+}))
 app.use(express.json())
 
 const DBCON = mysql.createConnection({
@@ -13,12 +17,12 @@ const DBCON = mysql.createConnection({
     database: "employees"
 })
 
-app.get("https://employee-server-phi.vercel.app/" , (req , res)=>{
+app.get("/" , (req , res)=>{
    res.send(`Hello in our Server Port Number ${port}`)
     
 })
 
-app.get("https://employee-server-phi.vercel.app/employee" , (req , res)=>{
+app.get("/employee" , (req , res)=>{
     DBCON.query("select * from employee_info" , (err , result)=>{
         if (err) throw err
         else{
