@@ -7,7 +7,7 @@ import mysql from "mysql"
 // })
 
 const DBCON = mysql.createConnection({
-        host:"127.0.0.1",
+        host:"localhost",
         user: "root",
         password: "",
         database: "employees"
